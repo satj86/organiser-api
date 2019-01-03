@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: Build API
-          command: dotnet build src/Organiser.Api/Organiser.Api.sln
+          command: dotnet build src/Organiser.Api.sln
 workflows:
   version: 2
   organiser_api_dev:
