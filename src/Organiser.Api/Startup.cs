@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Organiser.Accounting.Crunch;
+using Organiser.Api.Configuration;
 
 namespace Organiser.Api
 {
@@ -26,6 +28,10 @@ namespace Organiser.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.ConfigureSettings<CrunchApiSettings>("Money:CrunchApi", Configuration);
+
+            services.AddTransient<CrunchApiClient>(x => new CrunchApiClient(x.GetRequiredService<CrunchApiSettings>(), x.GetRequiredService<ILogger<CrunchApiClient>>()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
