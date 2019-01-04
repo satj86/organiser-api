@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Organiser.Accounting.Crunch;
+﻿using Microsoft.AspNetCore.Mvc;
+using Organiser.Accounting.Crunch.ApiClient;
 using Organiser.Accounting.Crunch.Model.SalesInvoices;
+using System.Threading.Tasks;
 
 namespace Organiser.Api.Controllers
 {
@@ -12,9 +9,9 @@ namespace Organiser.Api.Controllers
     [ApiController]
     public class SalesController : ControllerBase
     {
-        private readonly CrunchApiClient _crunchApiClient;
+        private readonly OAuth1ApiClient _crunchApiClient;
 
-        public SalesController(CrunchApiClient crunchApiClient)
+        public SalesController(OAuth1ApiClient crunchApiClient)
         {
             _crunchApiClient = crunchApiClient;
         }

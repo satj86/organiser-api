@@ -1,6 +1,6 @@
-﻿namespace Organiser.Accounting.Crunch
+﻿namespace Organiser.Accounting.Crunch.ApiClient
 {
-    public class CrunchApiSettings
+    public class OAuth1Settings
     {
         public string BaseUrl { get; set; }
         public string ConsumerKey { get; set; }
